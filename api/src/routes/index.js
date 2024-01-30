@@ -35,10 +35,9 @@ const getPokeApi = async () => {
         return dataPokemon
 
 }
-getPokeApi()
 const getPokeDb = async () => {
-    return await Pokemon.findAll({
-        include:{
+    const pokemonFromDb = await Pokemon.findAll({
+        include: {
             model: Types,
             attributes: ['name'],
             through: {
@@ -47,6 +46,10 @@ const getPokeDb = async () => {
         }
     })
 
+    return pokemonFromDb.map(poke => ({
+        ...poke.toJSON(),
+        types: poke.types.map(type => type.name)
+    }));
 }
 
 const getAllPokemon = async () => {

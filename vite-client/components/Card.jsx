@@ -1,7 +1,7 @@
 
 const  Card = ({name, image, types}) =>{
 
-    console.log(types)
+    
     return (
         <div>
             <h2>{name}</h2>
