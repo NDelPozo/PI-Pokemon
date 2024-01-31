@@ -26,6 +26,10 @@ const reducer = (state = initialState, action) => {
                 pokemon:action.payload
             }
 
+        case 'POST_POKEMON':
+            return{
+                ...state
+            }
 
         case "FILTER_BY_TYPE":
             const allPokemon = state.allPokemon
@@ -46,7 +50,7 @@ const reducer = (state = initialState, action) => {
                 let orderArray = [...state.pokemon];  
                 if (action.payload === 'Asc') {
                     orderArray.sort((a, b) => (a.name > b.name) ? 1 : -1);
-                } else if (action.payload === 'Des') {
+                } else if (action.payload === 'Desy') {
                     orderArray.sort((a, b) => (a.name < b.name) ? 1 : -1);
                 } else if (action.payload === 'Atkup') {
                     orderArray.sort((a, b) => a.attack - b.attack);

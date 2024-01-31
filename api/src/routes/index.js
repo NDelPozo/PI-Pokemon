@@ -142,9 +142,9 @@ router.get('/types',  async (req, res) => {
              
              newPoke.addTypes(pokeType)
              res.status(201).send('Pokemon creado con exito!')
-    } catch (error) {
-        res.status(500).send('Error al crear el Pokemon :c')
-        
+    }  catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Error al crear el Pokemon :c' });
     }
 
 })

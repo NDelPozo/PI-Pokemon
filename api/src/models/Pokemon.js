@@ -32,15 +32,18 @@ module.exports = (sequelize) => {
     },
     speed: {
       type: DataTypes.INTEGER,  
-      allowNull: true
+      allowNull: true,
+      defaultValue: null
     },
     height: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
+      defaultValue: null
     },
     weight: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
+      defaultValue: null
     },
     custom: {
       type: DataTypes.BOOLEAN,

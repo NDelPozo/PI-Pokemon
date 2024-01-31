@@ -3,7 +3,7 @@ import axios from "axios"
 export function getPokemon() {
     return async function(dispatch){
         
-            const {data} = await axios.get("http://localhost:3001/pokemon",{});
+            const {data} = await axios.get("http://localhost:3001/pokemon");
                 console.log(data);
                 return dispatch({
                     type: 'GET_POKEMON',
@@ -39,6 +39,16 @@ export function getPokemonName(name){
         
     } catch (error) {
         console.log(error)
+    }
+}
+
+export function postPokemon(payload){
+    return async function(dispatch){
+        var response = await axios.post('http://localhost:3001/pokemon', payload)
+        console.log(response);
+        return{
+            type:'POST_POKEMON',
+            response}
     }
 }
 
